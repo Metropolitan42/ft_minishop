@@ -134,6 +134,10 @@
 		</tr>
 		
 		<!-- # Admin only # -->
+		<?php
+		if ($privilege == 0)
+		{
+		?>
 		
 		<tr id="Module_Products_Header" class="row1">
 			<td class="title">Manage Products</td>
@@ -215,6 +219,10 @@
 				?>
 			</td>
 		</tr>
+		
+		<?php
+		}
+		?>
 		
 	</table>
 

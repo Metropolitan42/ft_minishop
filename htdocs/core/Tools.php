@@ -52,4 +52,14 @@
 		}
 		return ('OUT OF STOCK');
 	}
+	
+	function ft_in_category($name)
+	{
+		$base = mysqli_connect('localhost', 'root', 'root', 'ft_minishop');
+		
+		$stmt = $mysqli->prepare("INSERT INTO ft_categories (filmName, filmDescription,filmImage,filmPrice,filmReview) VALUES (?, ?, ?, ?, ?)");
+		$stmt->bind_param('sssdi', $_POST['filmName'], $_POST['filmDescription'], $_POST['filmImage'], $_POST['filmPrice'], $_POST['filmReview']);
+		$stmt->execute(); 
+		$stmt->close();
+	}
 ?>

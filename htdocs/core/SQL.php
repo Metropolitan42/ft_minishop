@@ -3,7 +3,7 @@
 	{
 		$pong = array();
 
-		$base = mysqli_connect('127.0.0.1', 'root', 'born2code', 'ft_minishop');
+		$base = mysqli_connect('localhost', 'root', 'root', 'ft_minishop');
 		$data = mysqli_query  ($base, $query);
 
 		while ($buffer = mysqli_fetch_assoc($data))
@@ -15,9 +15,9 @@
 	
 	function SQLQuery_UP($query)
 	{
-		$conn = mysqli_connect('127.0.0.1', 'root', 'born2code', 'ft_minishop');
+		$base = mysqli_connect('localhost', 'root', 'root', 'ft_minishop');
 		
-		if (mysqli_query($conn, $query))
+		if (mysqli_query($base, $query))
 		{
 			return (0);
 		}
