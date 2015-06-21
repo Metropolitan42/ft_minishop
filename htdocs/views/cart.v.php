@@ -1,15 +1,48 @@
 <div id="Cart" class="page">
 
-	<div class="<?php echo 'cartproduct'.$type; ?>">
+	<table><?php
 
-		<table>
-			<tr>
-				<td class="icon" ><a href="index.php?nav=cart&amp;remove=<?php echo $product['id']; ?>" alt="Remove"><img src="core/webdesigns/ft_minishop/cross.png" alt="Remove" title="Remove"/></a></td>
-				<td class="name" ><?php echo $product['name']; ?></td>
-				<td class="quantity"><?php echo $cart[1]; ?></td>
-				<td class="price" ><?php echo ($cart[1] * $product['price']); ?> €</td>
-			</tr>
-		</table>
+		$type = 1;
 
-	</div>
+		foreach ($data as $value)
+		{
+			echo'
+			<tr class="row'.$type.'">
+
+				<td class="icon">
+					<a href="#" alt="#">
+						<img src="core/webdesigns/ft_minishop/cross.png" alt="#" title="#" />
+					</a>
+				</td>
+
+				<td class="name">
+					<a href="index.php?nav=records&id='.$value['id'].'" alt="#">
+						'.$value['name'].'
+					</a>
+				</td>
+
+				<td class="quantity">'.$value['stock'].'  </td>
+				<td class="price"   >'.$value['price'].' €</td>
+			</tr>';
+
+			$type = !$type;
+		}
+		echo '
+		<tr>
+			<td colspan="4">
+				'.$total.' €
+			</td>
+		</tr>';
+
+	?></table>
+
+	<?php
+		echo '
+		<div class="submit">
+			<form>
+				<input type="submit" value="Proceed to payment" />
+			</form>
+		</div>';
+	?>
+
 </div>

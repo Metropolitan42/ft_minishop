@@ -11,6 +11,19 @@ body
 	color: rgba(255, 255, 255, 0.3);
 }
 
+a
+{
+	color: rgba(255, 255, 255, 0.3);
+	text-decoration: none;
+	transition: 0.5s color;
+}
+
+a:hover
+{
+	color: rgb(150, 135, 0);
+	transition: 0.5s color;
+}
+
 #Content
 {
 	height: 975px;
@@ -30,7 +43,7 @@ body
 
 #Footer
 {
-	height: 100px;
+	height: 230px;
 	background: rgba(0, 0, 0, 0.45);
 	border-top: 1px solid rgba(255, 255, 255, 0.15);
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
@@ -158,8 +171,8 @@ body
 .error
 {
 	padding: 50px 0;
-	background: rgba(0, 0, 0, 0.4);
-	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	background: rgba(0, 0, 0, 0.25);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 	text-align: center;
 	text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
@@ -169,48 +182,15 @@ body
 	padding: 20px 20px;
 	background: rgba(0, 0, 0, 0.1);
 	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-	text-align: center;
 	text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);	
 }
 
 .cartproduct1
 {
 	padding: 20px 20px;
-	background: rgba(0, 0, 0, 0.4);
+	background: rgba(0, 0, 0, 0.25);
 	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-	text-align: center;
 	text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);		
-}
-
-#Cart .name
-{
-	width: 725px;
-	text-align: left;
-}
-
-#Cart .quantity
-{
-	width: 50px;
-	color: rgb(150, 135, 0);
-}
-
-#Cart .icon
-{
-	padding-right: 15px;
-}
-
-#Cart .icon img
-{
-	width: 19px;
-	height: 19px;
-	position: relative;
-	top: 2px;
-}
-
-.total
-{
-	padding: 20px 29px;
-	text-align: right;
 }
 
 .submit form
@@ -223,12 +203,13 @@ body
 {
 	width: 100%;
 	color: rgb(150, 135, 0);
-	background: rgba(0, 0, 0, 0.4);
+	background: rgba(0, 0, 0, 0.25);
 	border: none;
 	padding: 5px;
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 	border-top: 1px solid rgba(255, 255, 255, 0.1);
 	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	transition: 0.5s background;
 }
 
 .submit input[type=submit]:hover
@@ -236,65 +217,63 @@ body
 	background: rgba(0, 0, 0, 0.3);
 }
 
-.records td
+#Category td
 {
-	
 	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.records td.name
+#Category td.name
 {
 	padding: 26px 17px 26px 17px;
-	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.records td.icon
+#Category td.icon
 {
 	width: 19px;
 	padding: 0 0 0 23px;
 }
 
-.records td.icon img
+#Category td.icon img
 {
-	
 	width: 19px;
 	height: 19px;
 	position: relative;
 	top: 2px;
 }
 
-.records table
+#Category table
 {
 	width: 100%;
 	border-collapse: collapse;
 }
 
-.records td.stock
+#Category td.stock
 {
 	width: 100px;
 	text-align: right;
 	padding-right: 20px;
 }
 
-.records td.production
+#Category td.production
 {
-	padding: 0 15px 0 15px;
-	text-align: center;
+	color: rgb(140, 125, 0);
+	padding: 0 0 0 15px;
+	text-align: right;
 }
 
-.records td.price
+#Category td.price
 {
 	width: 48px;
 	text-align: right;
 	padding-right: 29px;
 }
 
-.records td.quantity
+#Category td.quantity
 {
 	width: 30px;
 }
 
-.records td.quantity input
+#Category td.quantity input
 {
 	width: 30px;
 	color: rgb(150, 135, 0);
@@ -313,6 +292,138 @@ body
 
 .row1
 {
-	background: rgba(0, 0, 0, 0.4);
+	background: rgba(0, 0, 0, 0.25);
 	text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);		
+}
+
+#Records table
+{
+	width: 100%;
+	border-collapse: collapse;
+}
+
+#Records table tr:first-child
+{
+	background: rgba(0, 0, 0, 0.3);
+	transition: 0.5s background;
+}
+
+#Records table tr:hover
+{
+	background: rgba(0, 0, 0, 0.15);
+	transition: 0.5s background;
+}
+
+#Records table tr:first-child:hover
+{
+	background: rgba(0, 0, 0, 0.3);
+	transition: 0.5s background;
+}
+
+#Records table td
+{
+	padding: 20px 20px;
+	background: rgba(0, 0, 0, 0.1);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	text-align: center;
+	text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+#Records td.name
+{
+	padding: 26px 0 26px 6px;
+	text-align: left;
+}
+
+#Records td.production
+{
+	color: rgb(140, 125, 0);
+	padding: 26px 25px 26px 0;
+	text-align: right;
+}
+
+#Records td.side
+{
+	color: rgb(140, 125, 0);
+	padding-left: 25px;
+	padding-right: 0;
+	text-align: left;
+	width: 15px;
+}
+
+#Records td.artist
+{
+	width: 200px;
+	text-align: left;
+	padding: 26px 0 26px 0;
+}
+
+#Records td.track
+{
+	text-align: right;
+	padding-right: 25px;
+}
+
+#Records td.duration
+{
+	text-align: center;
+	width: 46px;
+	padding-left: 0;
+	padding-right: 5px;
+}
+
+#Records .icon
+{
+	padding-right: 14px;
+}
+
+#Records .icon img
+{
+	width: 19px;
+	height: 19px;
+	position: relative;
+	top: 2px;
+	left: 3px;
+}
+
+#Cart td
+{
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#Cart td.name
+{
+	padding: 26px 17px 26px 17px;
+}
+
+#Cart td.icon
+{
+	width: 19px;
+	padding: 0 0 0 23px;
+}
+
+#Cart td.icon img
+{
+	width: 19px;
+	height: 19px;
+	position: relative;
+	top: 2px;
+}
+
+#Cart table
+{
+	width: 100%;
+	border-collapse: collapse;
+}
+
+#Cart td.price
+{
+	width: 48px;
+	text-align: right;
+	padding-right: 29px;
+}
+
+#Cart td.quantity
+{
+	width: 30px;
 }

@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 
 <?php
-	setcookie("ft_cart", "1:1;2:1;3:5;4:1;5:1;", (time() + 3600));
+	if (!isset($_COOKIE['cart']))
+	{
+		setcookie("cart", "1:1;2:1;3:5;4:1;5:1;", (time() + 3600));
+	}
 	$base = mysqli_connect('127.0.0.1', 'root', 'root', 'ft_minishop');
 ?>
 
@@ -25,10 +28,10 @@
 						<a class="title" href="#">RECORDS</a>
 
 						<ul>
-							<li><a href="index.php?nav=hardtek">HARDTEK</a></li>
-							<li><a href="index.php?nav=tribecore">TRIBECORE</a></li>
-							<li><a href="index.php?nav=frenchcore">FRENCHCORE</a></li>
-							<li><a href="index.php?nav=hardcore">HARDCORE</a></li>
+							<li><a href="index.php?nav=category&amp;id=1">HARDTEK   </a></li>
+							<li><a href="index.php?nav=category&amp;id=2">TRIBECORE </a></li>
+							<li><a href="index.php?nav=category&amp;id=3">FRENCHCORE</a></li>
+							<li><a href="index.php?nav=category&amp;id=4">HARDCORE  </a></li>
 						</ul>
 					</li>
 
@@ -60,14 +63,14 @@
 			<?php
 				if (isset($_GET['nav']))
 				{
-					if		($_GET['nav'] == "home"	  ) {include('controllers/home.c.php'	);}
-					else if ($_GET['nav'] == "records") {include('controllers/records.c.php');}
-					else if ($_GET['nav'] == "hardtek") {include('controllers/hardtek.c.php');}
-					else if ($_GET['nav'] == "cart"	  ) {include('controllers/cart.c.php'	);}
-					else if ($_GET['nav'] == "account") {include('controllers/account.c.php');}
-					else								{include('controllers/home.c.php'	);}
+					if		($_GET['nav'] == "home"	   ) {include('controllers/home.c.php'	    );}
+					else if ($_GET['nav'] == "records" ) {include('controllers/records.c.php'   );}
+					else if ($_GET['nav'] == "category") {include('controllers/categories.c.php');}
+					else if ($_GET['nav'] == "cart"	   ) {include('controllers/cart.c.php'	    );}
+					else if ($_GET['nav'] == "account" ) {include('controllers/account.c.php'   );}
+					else								 {include('controllers/home.c.php'	    );}
 				}
-				else									{include('controllers/home.c.php'	);}
+				else									 {include('controllers/home.c.php'	    );}
 			?>
 
 		</div>

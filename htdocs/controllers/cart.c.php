@@ -1,46 +1,35 @@
 <?php
-	if (isset($_GET['remove']) && is_numeric($_GET['remove']))
+	include('core/SQL.php'  );
+	include('core/Tools.php');
+
+	if (isset($_COOKIE['cart']) && $_COOKIE['cart'] != '#')
 	{
-		/*
-		$pattern = "/".$_COOKIE['ft_cart'].":[0-9];/";
-		$_COOKIE['ft_cart'] = preg_replace($pattern, "X", $_COOKIE['ft_cart']);
-		*/
-	}
-	if ($_COOKIE['ft_cart'] != '#')
-	{
-		if (($data = explode(';', $_COOKIE['ft_cart'])))
+		$data = array();
+
+		if ($cookie_a = explode(';', $_COOKIE['cart']))
 		{
-			$type = 1;
 			$total = 0;
 
-			foreach ($data as $value)
+			foreach ($cookie_a as $value)
 			{
-				if ($value && ($cart = explode(':', $value)))
+				if ($value)
 				{
-					$base = mysqli_connect('127.0.0.1', 'root', 'born2code', 'ft_minishop');
-					$query = mysqli_prepare($base, 'SELECT id, name, price FROM ft_products WHERE id=?');
+					if ($cookie_b = explode(':', $value))
+					{
+						$query = "SELECT * FROM ft_products WHERE id = '".$cookie_b[0]."'";
 
-					mysqli_stmt_bind_param($query, "i", $cart[0]);
-					mysqli_stmt_execute($query);
-					mysqli_stmt_bind_result($query, $product['id'], $product['name'], $product['price']);
-					mysqli_stmt_fetch($query);
+						if ($buffer = SQLQuery($query))
+						{
+							$buffer[0]['stock'] = $cookie_b[1];
+							$buffer[0]['price'] = ft_price($buffer[0]['price'], $cookie_b[1]);
 
-					include('views/cart.v.php');
-
-					$type = !$type;
-					$total += ($cart[1] * $product['price']);
+							$total += $buffer[0]['price'];
+							$data[] = $buffer[0];
+						}
+					}
 				}
 			}
-			echo '
-			<div class="total">
-				Total : '.$total.' €
-			</div>
-
-			<div class="submit">
-				<form>
-					<input type="submit" value="Proceed to payment" />
-				</form>
-			</div>';
+			include('views/cart.v.php');
 		}
 	}
 	else
