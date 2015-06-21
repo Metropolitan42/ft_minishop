@@ -21,6 +21,7 @@
 			$name = $data[0]['name'];
 			$mail = $data[0]['mail'];
 			$privilege = $data[0]['privilege'];
+			$md5mdp = $data[0]['password'];
 			
 			$query2 = "SELECT * FROM ft_orders WHERE user = '".$id_user."'ORDER BY date";
 			if (!$data2 = SQLQuery($query2))
@@ -38,12 +39,13 @@
 				
 				if (isset($_POST['nw_passwd_1']) && isset($_POST['nw_passwd_2']) && $_POST['nw_passwd_1'] != NULL && $_POST['nw_passwd_2'] != NULL && $_POST['nw_passwd_1'] === $_POST['nw_passwd_2'])
 				{
-					$query_update = "UPDATE ft_users SET mail='".$_POST['nw_mail']."' WHERE id='".$id_user."'";
-					if (SQLQuery_UP($query_update) != 0)
+					$query_update2 = "UPDATE ft_users SET password='".hash("md5", $_POST['nw_passwd_1'])."' WHERE id='".$id_user."'";
+					if (SQLQuery_UP($query_update2) != 0)
 					{
 						$error_up_mdp = TRUE;
 					}
 				}
+				header('Location: index.php?nav=account');
 			}
 			
 			include('views/account.v.php');
