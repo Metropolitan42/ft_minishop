@@ -209,7 +209,7 @@
 				{
 					echo '
 					<div class="error" style="background:none;border:0;">
-						Your purchase list seems empty
+						Your users list seems empty
 					</div>';
 				}
 				?>
