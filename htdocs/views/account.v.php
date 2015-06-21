@@ -1,39 +1,39 @@
 <style>
-	#Account
-	{
-		
-	}
-	
-	#Module_Account,
-	#Module_Purchase,
-	#Module_Products,
-	#Module_Categories,
-	#Module_Users
-	{
-		width: 100%;
-	}
+#Account table
+{
+	width: 100%;
+	border-collapse: collapse;
+}
+
+#Account td
+{
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
 </style>
 
 <div id="Account" class="page">
 
-	<div id="Module_Account">
-		
-	</div>
-	
-	<div id="Module_Purchases">
-		
-	</div>
-	
-	<div id="Module_Products">
-		
-	</div>
-	
-	<div id="Module_Categories">
-		
-	</div>
-	
-	<div id="Module_Users">
-		
-	</div>
+	<table>
+		<tr id="Module_Account" class="row1">
+			<td></td>
+			<td></td>
+		</tr>
+		<tr id="Module_Purchases" class="row">
+			<td></td>
+			<td></td>
+		</tr>
+		<tr id="Module_Products" class="row1">
+			<td></td>
+			<td></td>
+		</tr>
+		<tr id="Module_Categories" class="row">
+			<td></td>
+			<td></td>
+		</tr>
+		<tr id="Module_Users" class="row1">
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
 
 </div>
