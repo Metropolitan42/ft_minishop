@@ -61,7 +61,7 @@
 							<label for="nw_name">Name :</label><input type="text" name="nw_name" value="<?php echo $name; ?>"/>
 						</div>
 						<div>
-							<label>Mail :</label><input type="text" name="nw_mail" value=""/>
+							<label>Mail :</label><input type="text" name="nw_mail" value="<?php echo $mail; ?>"/>
 						</div>
 						<div>
 						</div>
