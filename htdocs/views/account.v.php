@@ -32,16 +32,30 @@
 	float: left;
 	margin-top: 7px;
 }
-#Account #box-config input
+#Account #box-config input[type=text],
+#Account #box-config input[type=password]
 {
 	height: 25px;
-	width: 680px;
+	width: 683px;
 	color: rgb(150, 135, 0);
 	background: rgba(0, 0, 0, 0.2);
 	border-radius: 3px;
 	border: 1px solid rgba(255, 255, 255, 0.1);
 	box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
 	text-align: center;
+}
+#Account #box-config input[type=submit]
+{
+	height: 40px;
+	width: 150px;
+	color: rgb(150, 135, 0);
+	background: rgba(0, 0, 0, 0.2);
+	border-radius: 3px;
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+	text-align: center;
+	float: right;
+	margin-bottom: 20px;
 }
 </style>
 
@@ -66,10 +80,13 @@
 						<div>
 						</div>
 						<div>
-							<label>New Password :</label><input type="text" name="nw_passwd_1" value=""/>
+							<label>New Password :</label><input type="password" name="nw_passwd_1" value=""/>
 						</div>
 						<div>
-							<label>Repeat New Password :</label><input type="text" name="nw_passwd_2" value=""/>
+							<label>Repeat New Password :</label><input type="password" name="nw_passwd_2" value=""/>
+						</div>
+						<div>
+							<input type="submit" name="save" value="Save"/>
 						</div>
 					</form>
 				</div>
@@ -82,12 +99,31 @@
 		</tr>
 		<tr id="Module_Purchases" class="row">
 			<td>
-				
+				<?php
+				if (!$error2)
+				{
+				?>
 				<div id="box-config">
-					<form method="post" action="index.php?nav=account&mod=purchases">
-					
-					</form>
+					<p>The following commands have been taken into account and are in treatment :</p>
+					<ul>
+						<?php
+						foreach ($data2 as $value2)
+						{
+							echo '#'.$value2['id'].' on '.$value2['date'];
+						}
+						?>
+					</ul>
 				</div>
+				<?php
+				}
+				else
+				{
+					echo '
+					<div class="error" style="background:none;border:0;">
+						Your purchase list seems empty
+					</div>';
+				}
+				?>
 				
 			</td>
 		</tr>
