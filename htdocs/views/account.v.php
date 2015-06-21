@@ -72,7 +72,7 @@
 				<div id="box-config">
 					<form method="post" action="index.php?nav=account&mod=account">
 						<div>
-							<label for="nw_name">Name :</label><input type="text" name="nw_name" value="<?php echo $name; ?>"/>
+							<label for="nw_name">Name :</label><input type="text" name="nw_name" value="<?php echo $name; ?>" disabled="true"/>
 						</div>
 						<div>
 							<label>Mail :</label><input type="text" name="nw_mail" value="<?php echo $mail; ?>"/>
@@ -89,6 +89,12 @@
 							<input type="submit" name="save" value="Save"/>
 						</div>
 					</form>
+					<?php
+					if (($error_up_user || $error_up_mdp) == TRUE)
+					{
+						echo 'Error : UPDATE Failed';
+					}
+					?>
 				</div>
 				
 			</td>
@@ -124,7 +130,6 @@
 					</div>';
 				}
 				?>
-				
 			</td>
 		</tr>
 		
@@ -135,13 +140,25 @@
 		</tr>
 		<tr id="Module_Products" class="row1">
 			<td>
-				
+				<?php
+				if (!$error3)
+				{
+				?>
 				<div id="box-config">
 					<form method="post" action="index.php?nav=account&mod=products">
 					
 					</form>
 				</div>
-				
+				<?php
+				}
+				else
+				{
+					echo '
+					<div class="error" style="background:none;border:0;">
+						Your products list seems empty
+					</div>';
+				}
+				?>
 			</td>
 		</tr>
 		
@@ -150,13 +167,25 @@
 		</tr>
 		<tr id="Module_Categories" class="row">
 			<td>
-				
+				<?php
+				if (!$error4)
+				{
+				?>
 				<div id="box-config">
 					<form method="post" action="index.php?nav=account&mod=categories">
 					
 					</form>
 				</div>
-				
+				<?php
+				}
+				else
+				{
+					echo '
+					<div class="error" style="background:none;border:0;">
+						Your categories list seems empty
+					</div>';
+				}
+				?>
 			</td>
 		</tr>
 		
@@ -165,13 +194,25 @@
 		</tr>
 		<tr id="Module_Users" class="row1">
 			<td>
-				
+				<?php
+				if (!$error5)
+				{
+				?>
 				<div id="box-config">
 					<form method="post" action="index.php?nav=account&mod=users">
 					
 					</form>
 				</div>
-				
+				<?php
+				}
+				else
+				{
+					echo '
+					<div class="error" style="background:none;border:0;">
+						Your purchase list seems empty
+					</div>';
+				}
+				?>
 			</td>
 		</tr>
 		

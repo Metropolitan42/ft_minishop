@@ -20,6 +20,7 @@
 			$id_user = $data[0]['id'];
 			$name = $data[0]['name'];
 			$mail = $data[0]['mail'];
+			$privilege = $data[0]['privilege'];
 			
 			$query2 = "SELECT * FROM ft_orders WHERE user = '".$id_user."'ORDER BY date";
 			if (!$data2 = SQLQuery($query2))
@@ -27,12 +28,21 @@
 				$error2 = TRUE;
 			}
 			
-			if ($_GET['mod'] === 'account' && $_POST['save'] === 'Save' && isset($_POST['nw_name']) && isset($_POST['nw_mail']))
+			if ($_GET['mod'] === 'account' && $_POST['save'] === 'Save' && isset($_POST['nw_mail']) && $_POST['nw_mail'] != NULL)
 			{
-				echo "OK";
+				$query_update = "UPDATE ft_users SET mail='".$_POST['nw_mail']."' WHERE id='".$id_user."'";
+				if (SQLQuery_UP($query_update) != 0)
+				{
+					$error_up_user = TRUE;
+				}
+				
 				if (isset($_POST['nw_passwd_1']) && isset($_POST['nw_passwd_2']) && $_POST['nw_passwd_1'] != NULL && $_POST['nw_passwd_2'] != NULL && $_POST['nw_passwd_1'] === $_POST['nw_passwd_2'])
 				{
-					echo "OK2";
+					$query_update = "UPDATE ft_users SET mail='".$_POST['nw_mail']."' WHERE id='".$id_user."'";
+					if (SQLQuery_UP($query_update) != 0)
+					{
+						$error_up_mdp = TRUE;
+					}
 				}
 			}
 			
